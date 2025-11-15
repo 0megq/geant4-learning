@@ -1,0 +1,24 @@
+# initializes Geant4 framework
+/run/initialize
+
+# open visualization window
+/vis/open OGL 600x600-0+0
+
+# we look from 1 1 1 directly towards origin
+/vis/viewer/set/viewpointVector 1 1 1
+/vis/viewer/set/autoRefresh true
+
+# draws the volumes we made
+/vis/drawVolume
+/vis/geometry/set/colour logicWorld 0 0 0 1 .3
+/vis/viewer/set/style surface
+
+# show trajectories of particles
+/vis/scene/add/trajectories smooth
+# accumulates all the trajectories for a given run
+/vis/scene/endOfEventAction accumulate
+# scale to see how large our volume is
+/vis/scene/add/scale 10 cm
+/vis/scene/add/axes
+# for every event we can see the id
+/vis/scene/add/eventID
