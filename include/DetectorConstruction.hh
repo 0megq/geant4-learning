@@ -14,6 +14,12 @@
 #include "G4SystemOfUnits.hh"
 #include "G4UnitsTable.hh"
 
+#include "G4VisAttributes.hh"
+#include "G4Color.hh" // Later we want to give things color
+#include "G4SDManager.hh"
+
+#include "SensitiveDetector.hh"
+
 class DetectorConstruction : public G4VUserDetectorConstruction
 {
 public:
@@ -21,6 +27,11 @@ public:
 	virtual ~DetectorConstruction();
 
 	virtual G4VPhysicalVolume *Construct();
+
+private:
+	G4LogicalVolume *logicDetector;
+
+	virtual void ConstructSDandField(); // any sensitive detector or field (electric field, etc);
 };
 
 #endif

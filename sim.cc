@@ -13,7 +13,7 @@
 
 int main(int argc, char **argv)
 {
-	G4UIExecutive *ui = new G4UIExecutive(argc, argv);
+	G4UIExecutive *ui;
 
 	// creating our run manager
 #ifdef G4MULTITHREADED
@@ -28,18 +28,32 @@ int main(int argc, char **argv)
 	// Detector consturction
 	runManager->SetUserInitialization(new DetectorConstruction());
 
-	// Detector consturction
+	// Action Initialization
 	runManager->SetUserInitialization(new ActionInitialization());
+
+	if (argc == 1)
+	{
+		ui = new G4UIExecutive(argc, argv);
+	}
 
 	G4VisManager *visManager = new G4VisExecutive();
 	visManager->Initialize();
 
 	G4UImanager *UImanager = G4UImanager::GetUIpointer();
 
-	UImanager->ApplyCommand("/control/execute vis.mac");
+	if (ui)
+	{
+		UImanager->ApplyCommand("/control/execute vis.mac");
 
-	ui->SessionStart();
-	delete ui;
+		ui->SessionStart();
+		delete ui;
+	}
+	else
+	{
+		G4String command = "/control/execute ";
+		G4String fileName = argv[1];
+		UImanager->ApplyCommand(command + fileName);
+	}
 
 	delete visManager;
 	delete runManager;
