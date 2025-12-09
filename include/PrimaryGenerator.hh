@@ -6,6 +6,7 @@
 #include "G4ParticleGun.hh"
 #include "G4ParticleTable.hh"
 #include "G4SystemOfUnits.hh"
+#include "G4IonTable.hh" // required to get access to the ions defined by G4
 
 class PrimaryGenerator : public G4VUserPrimaryGeneratorAction
 {
