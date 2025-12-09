@@ -12,7 +12,7 @@ Do the following:
 
 1. Create build folder within the project directory
 2. Run geant4make.sh, located inside the folder `<Geant4 Install Directory>/share/Geant4/geant4make`. If you followed the Geant4 tutorial by Physics Matters you can also just run `geant4make` in the terminal.
-3. Run the following commands from `<Cloned Project Directory>/build`:
+3. Run the following commands from `<Project Directory>/build`:
 
 ```bash
 cmake ..	# run cmake config
@@ -22,6 +22,7 @@ make		# compile the project
 
 4. Enjoy!
 
-# Include paths
+# Include paths and extensions for VS Code
 
-I reccomend adding `<Geant4 Install Directory>/include/Geant4` to the include path of your IDE so that you can get autocomplete and your IDE doesn't give you errors for the Geant4 headers. If you're using VSCode I can share how to do this.
+I recommend installing the C/C++ Extension Pack and also adding your [geant4 install to the include path](https://youtu.be/xpHeGwHqyzQ?si=JRR0rIW_IMifpHPE&t=533).
+
