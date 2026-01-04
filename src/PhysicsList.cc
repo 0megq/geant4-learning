@@ -10,6 +10,8 @@ PhysicsList::PhysicsList()
 
 	// Decay physics
 	RegisterPhysics(new G4DecayPhysics());
+
+	RegisterPhysics(new G4OpticalPhysics());
 }
 
 PhysicsList::~PhysicsList()

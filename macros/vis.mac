@@ -22,3 +22,5 @@
 /vis/scene/add/axes
 # for every event we can see the id
 /vis/scene/add/eventID
+
+/gun/particle proton

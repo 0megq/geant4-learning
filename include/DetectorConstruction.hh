@@ -30,7 +30,10 @@ public:
 	virtual G4VPhysicalVolume *Construct();
 
 private:
-	G4LogicalVolume *logicDetector;
+	// G4LogicalVolume *logicDetector;
+	G4Box *solidAir;
+	G4LogicalVolume *logicAir[10];
+	G4VPhysicalVolume *physAir[10];
 
 	virtual void ConstructSDandField(); // any sensitive detector or field (electric field, etc);
 };
